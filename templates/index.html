@@ -81,10 +81,20 @@
                 background-color: #1e1e1e; /* Cor de fundo do textarea para o tema escuro */
                 color: #ddd; /* Cor do texto do textarea para o tema escuro */
             }
+
+            #fixed-logo {
+                position: fixed; /* Fixa a imagem na página */
+                right: 10px;     /* 10 pixels da borda direita */
+                bottom: 10px;    /* 10 pixels da borda inferior */
+                width: 150px;    /* Largura da imagem - ajuste conforme necessário */
+            }
     }
 </style>
 </head>
 <body>
 <textarea id="text" oninput="textChanged()">{{ text }}</textarea>
+<a href="https://metaverso.com.br" target="_blank">
+    <img src="https://metaverso.com.br/m-wiki/images/c/c4/LogoMetaversoHorizontal.png" alt="Logo Metaverso" id="fixed-logo">
+</a>
 </body>
 </html>
