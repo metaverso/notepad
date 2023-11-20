@@ -15,6 +15,7 @@
     
     <script type="text/javascript">
         var socket = io.connect('http://' + document.domain + ':' + location.port + '/chat');
+        var debounceTimer;
 
         socket.on('connect', function() {
             socket.emit('join', {'room': window.location.pathname});
@@ -33,13 +34,14 @@
         };
 
         function textChanged() {
-            var path = window.location.pathname;
-            var text = document.getElementById("text").value;
-            socket.emit('text change', {'room': path, 'text': text});
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(function() {
+                var path = window.location.pathname;
+                var text = document.getElementById("text").value;
+                socket.emit('text change', {'room': path, 'text': text});
+            }, 4000); // 4000 milissegundos = 4 segundos
         }
     </script>
-
-
 </head>
 <body>
     <textarea id="text" cols="60" rows="20" oninput="textChanged()">{{ text }}</textarea>
