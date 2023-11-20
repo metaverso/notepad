@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metaverso ® Notepad</title>
+
+    <script>
+        var roomName = window.location.pathname.split('/').pop();
+        document.title = roomName || 'Metaverso ® Notepad';
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    
+    <script type="text/javascript">
+        var socket = io.connect('http://' + document.domain + ':' + location.port + '/chat');
+
+        socket.on('connect', function() {
+            socket.emit('join', {'room': window.location.pathname});
+        });
+
+        socket.on('text', function(data) {
+            document.getElementById("text").value = data.text;
+        });
+
+        socket.on('update', function(data) {
+            document.getElementById("text").value = data.text;
+        });
+
+        window.onbeforeunload = function(e) {
+            socket.emit('leave', {'room': window.location.pathname});
+        };
+
+        function textChanged() {
+            var path = window.location.pathname;
+            var text = document.getElementById("text").value;
+            socket.emit('text change', {'room': path, 'text': text});
+        }
+    </script>
+
+
+</head>
+<body>
+    <textarea id="text" cols="60" rows="20" oninput="textChanged()">{{ text }}</textarea>
+</body>
+</html>
