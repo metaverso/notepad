@@ -20,12 +20,15 @@ def setup_database(app):
     with app.app_context():
         db.create_all()
 
-@app.route('/', defaults={'path': ''})
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 @app.route('/<path:path>')
-def index(path):
+def secret_url(path):
     text_entry = Text.query.filter_by(path=path).first()
     text = text_entry.content if text_entry else ""
-    return render_template('index.html', text=text, path=path)
+    return render_template('secret_url.html', text=text, path=path)
 
 # Socket.IO events aqui
 @socketio.on('join', namespace='/chat')
