@@ -4,6 +4,8 @@
 
 Metaverso Notepad is a web application developed to provide a platform for real-time collaborative note-taking. Utilizing technologies such as Flask, SQLAlchemy, and Socket.IO, this project allows users to create and share text documents in an efficient and interactive manner.
 
+"This project was inspired by dontpad.com."
+
 ## Features
 
 - Creation and storage of text documents.
