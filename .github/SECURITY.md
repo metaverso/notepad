@@ -15,3 +15,7 @@ Declaração de Dados e Políticas de Privacidade da Metaverso® Inteligência A
 
 ## 5. Política de Segurança da Informação
 [Política de Segurança da Informação](https://metaverso.tawk.help/article/pol%C3%ADticas-de-seguran%C3%A7a-da-informa%C3%A7%C3%A3o)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9421b0e (security and code of conduct)
