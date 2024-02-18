@@ -1,3 +1,5 @@
+![Captura de tela de 2024-02-18 01-35-11](https://github.com/metaverso/notepad/assets/23690053/60e7f7ba-a2fc-465d-b1ad-ac59c67a3326)
+
 # Metaverso ® Notepad
 Simple, instant and online collaboration.
 
