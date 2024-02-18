@@ -53,4 +53,4 @@ This project is under the MIT License. See the [LICENSE](LICENSE) file for more 
 
 ---
 
-[Metaverso](https://metaverso.com.br) - © 2023
+[Metaverso ® Inteligência Artificial Ltda.](https://metaverso.com.br) - © 2023
