@@ -1,4 +1,5 @@
-# Metaverso Notepad
+# Metaverso ® Notepad
+Simple, instant and online collaboration.
 
 ## Description
 
