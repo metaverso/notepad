@@ -46,6 +46,21 @@
         .container button:hover {
             background-color: black;
         }
+
+        /* Terminal text effect https://codepen.io/Tbgse/pen/dYaJyJ */
+        .hidden {
+            opacity:0;
+          }
+          .console-container {
+            
+          }
+          .console-underscore {
+             display:inline-block;
+            position:relative;
+            top:-0.14em;
+            left:10px;
+          }
+
         
          /* Estilos para o tema escuro */
         @media (prefers-color-scheme: dark) {
@@ -57,7 +72,9 @@
                 background-color: #1e1e1e; /* Cor de fundo do textarea para o tema escuro */
                 color: #ddd; /* Cor do texto do textarea para o tema escuro */
             }
-    }        
+        }
+        
+        
     </style>
 </head>
 <body>
@@ -65,11 +82,67 @@
     	<a href="https://metaverso.com.br" target="_blank">
     		<img src="https://metaverso.com.br/m-wiki/images/c/c4/LogoMetaversoHorizontal.png" alt="Logo Metaverso" id="sfixed-logo">
 	</a>
-        <h1>Metaverso ® Notepad, Simples e Poderoso.</h1>
+        <!--<h1>Metaverso ® Notepad, Simples e Poderoso.</h1>-->
+        <div class='console-container'><h1>Metaverso ® Notepad, <span id='text'></span><div class='console-underscore' id='console'>&#95;</div></h1></div>
         <p>Insira o código secreto para continuar:</p>
         <input type="text" id="secretCode" placeholder="Código Secreto" autofocus onkeypress="handleKeyPress(event)" />
         <button onclick="goToSecretRoom()">Ir</button>
     </div>
+    <script>
+        // function([string1, string2],target id,[color1,color2])    
+ consoleText(['Simples e Poderoso.', 'Edição Colaborativa.', 'Salvamento Automático.', 'Não Precisa Criar Conta.'], 'text',['tomato','rebeccapurple','green']);
+
+ function consoleText(words, id, colors) {
+   if (colors === undefined) colors = ['#fff'];
+   var visible = true;
+   var con = document.getElementById('console');
+   var letterCount = 1;
+   var x = 1;
+   var waiting = false;
+   var target = document.getElementById(id)
+   target.setAttribute('style', 'color:' + colors[0])
+   window.setInterval(function() {
+ 
+     if (letterCount === 0 && waiting === false) {
+       waiting = true;
+       target.innerHTML = words[0].substring(0, letterCount)
+       window.setTimeout(function() {
+         var usedColor = colors.shift();
+         colors.push(usedColor);
+         var usedWord = words.shift();
+         words.push(usedWord);
+         x = 1;
+         target.setAttribute('style', 'color:' + colors[0])
+         letterCount += x;
+         waiting = false;
+       }, 1000)
+     } else if (letterCount === words[0].length + 1 && waiting === false) {
+       waiting = true;
+       window.setTimeout(function() {
+         x = -1;
+         letterCount += x;
+         waiting = false;
+       }, 1000)
+     } else if (waiting === false) {
+       target.innerHTML = words[0].substring(0, letterCount)
+       letterCount += x;
+     }
+   }, 120)
+   window.setInterval(function() {
+     if (visible === true) {
+       con.className = 'console-underscore hidden'
+       visible = false;
+ 
+     } else {
+       con.className = 'console-underscore'
+ 
+       visible = true;
+     }
+   }, 400)
+ }
+    </script>
+
+
 
     <script>
         function goToSecretRoom() {
