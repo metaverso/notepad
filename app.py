@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
-from flask_socketio import SocketIO, emit, join_room, leave_room
 import os
 
 from dotenv import load_dotenv
+from flask import Flask, render_template, request
+from flask_socketio import SocketIO, emit, join_room, leave_room
+from flask_sqlalchemy import SQLAlchemy
+
 load_dotenv()
 
 app = Flask(__name__)
@@ -11,6 +12,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///tex
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'secret!')
 db = SQLAlchemy(app)
 socketio = SocketIO(app)
+
 
 class Text(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -20,13 +22,16 @@ class Text(db.Model):
     def __repr__(self):
         return f'<Text {self.path}>'
 
+
 def setup_database(app):
     with app.app_context():
         db.create_all()
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/<path:path>')
 def secret_url(path):
@@ -35,6 +40,8 @@ def secret_url(path):
     return render_template('secret_url.html', text=text, path=path)
 
 # Socket.IO events aqui
+
+
 @socketio.on('join', namespace='/chat')
 def on_join(data):
     room = data['room']
@@ -42,6 +49,7 @@ def on_join(data):
     text_entry = Text.query.filter_by(path=room).first()
     text = text_entry.content if text_entry else ""
     emit('text', {'text': text}, room=room)
+
 
 @socketio.on('text change', namespace='/chat')
 def on_text_change(data):
@@ -55,6 +63,7 @@ def on_text_change(data):
         db.session.add(text_entry)
     db.session.commit()
     emit('update', {'text': text}, room=room)
+
 
 @socketio.on('leave', namespace='/chat')
 def on_leave(data):
