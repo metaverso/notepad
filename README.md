@@ -1,52 +1,52 @@
 # Metaverso Notepad
 
-## Descrição
+## Description
 
-Metaverso Notepad é uma aplicação web desenvolvida para fornecer uma plataforma de anotações colaborativas em tempo real. Utilizando tecnologias como Flask, SQLAlchemy e Socket.IO, este projeto permite que os usuários criem e compartilhem documentos de texto de maneira eficiente e interativa.
+Metaverso Notepad is a web application developed to provide a platform for real-time collaborative note-taking. Utilizing technologies such as Flask, SQLAlchemy, and Socket.IO, this project allows users to create and share text documents in an efficient and interactive manner.
 
-## Recursos
+## Features
 
-- Criação e armazenamento de documentos de texto.
-- Edição colaborativa em tempo real.
-- Interface simples e intuitiva.
+- Creation and storage of text documents.
+- Real-time collaborative editing.
+- Simple and intuitive interface.
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 - Flask
 - Flask-SocketIO
 - Flask-SQLAlchemy
 - SQLite
 
-## Instalação
+## Installation
 
-### Pré-requisitos
+### Prerequisites
 
-Antes de começar, certifique-se de ter o Python instalado em sua máquina. Além disso, você precisará de um gerenciador de pacotes como pip para instalar as dependências do projeto.
+Before you begin, make sure you have Python installed on your machine. Additionally, you will need a package manager like pip to install the project dependencies.
 
-### Passos de Instalação
+### Installation Steps
 
-1. Clone o repositório para sua máquina local usando `git clone`.
-2. Navegue até a pasta do projeto.
-3. Instale as dependências necessárias executando `pip install -r requirements.txt`.
-4. Inicie o servidor localmente executando `python app.py`.
+1. Clone the repository to your local machine using `git clone`.
+2. Navigate to the project folder.
+3. Install the necessary dependencies by running `pip install -r requirements.txt`.
+4. Start the server locally by running `python app.py`.
 
-## Uso
+## Usage
 
-Após iniciar o servidor, acesse `http://localhost:5000` em seu navegador para começar a usar o Metaverso Notepad. Crie novos documentos e compartilhe-os com outros usuários para colaboração em tempo real.
+After starting the server, access `http://localhost:5000` in your browser to start using Metaverso Notepad. Create new documents and share them with other users for real-time collaboration.
 
-## Contribuições
+## Contributions
 
-Contribuições são bem-vindas! Se você deseja contribuir, por favor:
+Contributions are welcome! If you wish to contribute, please:
 
-1. Faça um fork do repositório.
-2. Crie uma nova branch para suas mudanças (`git checkout -b feature/nova-feature`).
-3. Faça suas alterações e commit (`git commit -am 'Adiciona alguma feature'`).
-4. Faça push para a branch (`git push origin feature/nova-feature`).
-5. Abra um Pull Request.
+1. Fork the repository.
+2. Create a new branch for your changes (`git checkout -b feature/new-feature`).
+3. Make your changes and commit (`git commit -am 'Add some feature'`).
+4. Push to the branch (`git push origin feature/new-feature`).
+5. Open a Pull Request.
 
-## Licença
+## License
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+This project is under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ---
 
