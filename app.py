@@ -41,7 +41,6 @@ def secret_url(path):
 
 # Socket.IO events aqui
 
-
 @socketio.on('join', namespace='/chat')
 def on_join(data):
     room = data['room']
